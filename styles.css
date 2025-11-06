@@ -1,99 +1,115 @@
+/* Estilos generales del cuerpo de la página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    padding: 20px;
+    font-family: Arial, sans-serif; /* Establece la fuente principal */
+    background-color: #f0f0f0; /* Color de fondo gris claro para la página */
+    padding: 20px; /* Relleno alrededor del contenido principal */
 }
 
+/* Contenedor principal del juego del ahorcado */
 #juego-ahorcado {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 500px; /* Limita el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente en la página */
+    padding: 30px; /* Relleno interior del contenedor */
+    border-radius: 8px; /* Esquinas ligeramente redondeadas */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil para darle profundidad */
 }
 
+/* Estilo para el encabezado principal */
 h1 {
-    text-align: center;
-    color: #333;
+    text-align: center; /* Centra el texto del título */
+    color: #333; /* Color de texto oscuro */
 }
 
+/* Contenedor de la imagen del ahorcado */
 #img {
-    text-align: center;
-    margin: 20px 0;
+    text-align: center; /* Centra la imagen dentro de su contenedor */
+    margin: 20px 0; /* Margen superior e inferior */
 }
 
+/* Estilo para la imagen dentro del contenedor #img */
 #img img {
-    height: 180px;
+    height: 180px; /* Fija la altura de la imagen */
 }
 
+/* Contenedor de la palabra a adivinar (letras/guiones) */
 #palabra-adivinar {
-    text-align: center;
-    margin: 30px 0;
+    text-align: center; /* Centra las letras/guiones */
+    margin: 30px 0; /* Margen superior e inferior para separarlo */
 }
 
+/* Estilo para cada elemento que representa una letra oculta o adivinada */
 .letra-oculta {
-    font-size: 30px;
-    margin: 0 5px;
-    border-bottom: 3px solid #333;
-    display: inline-block;
-    width: 30px;
-    text-align: center;
+    font-size: 30px; /* Tamaño de fuente grande */
+    margin: 0 5px; /* Espacio horizontal entre letras */
+    border-bottom: 3px solid #333; /* Línea inferior que simula el espacio de la letra */
+    display: inline-block; /* Permite definir ancho y altura, pero mantiene el flujo en línea */
+    width: 30px; /* Ancho fijo para cada espacio de letra */
+    text-align: center; /* Centra la letra dentro de su espacio */
 }
 
+/* Contenedor para mensajes de estado o feedback al jugador */
 #mensajes {
-    text-align: center;
+    text-align: center; /* Centra el texto */
     margin: 20px 0;
-    font-size: 18px;
-    color: #666;
+    font-size: 18px; /* Tamaño de fuente ligeramente mayor */
+    color: #666; /* Color de texto gris */
 }
 
+/* Contenedor para el campo de entrada de letras y el botón */
 #entrada-letras {
     text-align: center;
     margin: 20px 0;
 }
 
+/* Etiqueta del campo de entrada */
 #entrada-letras label {
-    display: block;
+    display: block; /* Ocupa todo el ancho disponible */
     margin-bottom: 10px;
     font-size: 16px;
 }
 
+/* Campo de entrada de la letra */
 #input-letra {
-    width: 50px;
-    height: 50px;
+    width: 50px; /* Ancho del campo */
+    height: 50px; /* Alto del campo (lo hace cuadrado) */
     font-size: 24px;
-    text-align: center;
+    text-align: center; /* Centra la letra que el usuario escribe */
     border: 2px solid #333;
     border-radius: 4px;
-    text-transform: uppercase;
+    text-transform: uppercase; /* Convierte automáticamente la entrada a mayúsculas para la visualización */
 }
 
+/* Estilos base para todos los botones */
 button {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer; /* Indica que es un elemento interactivo al pasar el mouse */
     margin: 5px;
 }
 
+/* Estilo específico para el botón de adivinar */
 #boton-adivinar {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color de texto blanco */
 }
 
+/* Contenedor de letras ya usadas */
 #letras-usadas {
     text-align: center;
     margin: 20px 0;
 }
 
+/* Texto que muestra las letras ya usadas */
 #letras-mostradas {
-    font-weight: bold;
+    font-weight: bold; /* Hace el texto en negrita */
 }
 
+/* Estilo para el botón de reiniciar */
 #reiniciar {
-    display: block;
-    margin: 20px auto;
-    background-color: #f44336;
+    display: block; /* Hace que el botón ocupe su propia línea */
+    margin: 20px auto; /* Centra el botón en su línea */
+    background-color: #f44336; /* Color de fondo rojo */
     color: white;
 }
