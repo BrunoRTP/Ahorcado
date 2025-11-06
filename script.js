@@ -21,7 +21,7 @@ function actualizarImagen(){
         intentosFallidos = 0;
     }
     const imagen = document.querySelector("#img img"); 
-    imagen.src = "/img/ahorcado_" + (6 - intentosFallidos) + ".png"; 
+    imagen.src = "img/ahorcado_" + (6 - intentosFallidos) + ".png"; 
 }
 
 function comprobarLetra() {
