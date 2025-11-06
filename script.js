@@ -20,8 +20,8 @@ function actualizarImagen(){ // Funcion para ir cambiando la imagen
         inicializarPalabra();
         intentosFallidos = 0;
     }
-    const imagen = document.querySelector("img");  // Pillamos la imagen y cambiamos su src a la siguiente imagen
-    imagen.src = "img/ahorcado_" + (6 - intentosFallidos) + ".png"; 
+    const imagen = document.querySelector("#img img"); 
+    imagen.src = "/img/ahorcado_" + (6 - intentosFallidos) + ".png"; 
 }
 
 function comprobarLetra() {
