@@ -1,0 +1,24 @@
+{
+  "temas": [
+    {
+      "nombre": "Animales",
+      "palabras": ["PERRO", "GATO", "ELEFANTE", "JIRAFA", "LEON", "TIGRE", "CABALLO", "DELFIN"]
+    },
+    {
+      "nombre": "Tecnología",
+      "palabras": ["JAVASCRIPT", "PROGRAMACION", "DESARROLLO", "ORDENADOR", "TECLADO", "PANTALLA", "INTERNET", "SOFTWARE"]
+    },
+    {
+      "nombre": "Países",
+      "palabras": ["ESPAÑA", "FRANCIA", "ALEMANIA", "ITALIA", "PORTUGAL", "BELGICA", "HOLANDA", "SUECIA"]
+    },
+    {
+      "nombre": "Frutas",
+      "palabras": ["MANZANA", "PLATANO", "NARANJA", "FRESA", "SANDIA", "MELON", "PERA", "UVA"]
+    },
+    {
+      "nombre": "Deportes",
+      "palabras": ["FUTBOL", "BALONCESTO", "TENIS", "NATACION", "CICLISMO", "ATLETISMO", "VOLEIBOL", "BALONMANO"]
+    }
+  ]
+}

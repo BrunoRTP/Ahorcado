@@ -1,115 +1,211 @@
 /* Estilos generales del cuerpo de la página */
 body {
-    font-family: Arial, sans-serif; /* Establece la fuente principal */
-    background-color: #f0f0f0; /* Color de fondo gris claro para la página */
-    padding: 20px; /* Relleno alrededor del contenido principal */
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
 }
 
 /* Contenedor principal del juego del ahorcado */
 #juego-ahorcado {
-    max-width: 500px; /* Limita el ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente en la página */
-    padding: 30px; /* Relleno interior del contenedor */
-    border-radius: 8px; /* Esquinas ligeramente redondeadas */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil para darle profundidad */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: white;
 }
 
 /* Estilo para el encabezado principal */
 h1 {
-    text-align: center; /* Centra el texto del título */
-    color: #333; /* Color de texto oscuro */
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de selección de tema */
+#selector-tema {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#selector-tema label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#selector-tema select {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Contenedor de información del juego */
+#info-juego {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+#info-juego div {
+    text-align: center;
+}
+
+#info-juego span {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 20px;
 }
 
 /* Contenedor de la imagen del ahorcado */
 #img {
-    text-align: center; /* Centra la imagen dentro de su contenedor */
-    margin: 20px 0; /* Margen superior e inferior */
-}
-
-/* Estilo para la imagen dentro del contenedor #img */
-#img img {
-    height: 180px; /* Fija la altura de la imagen */
-}
-
-/* Contenedor de la palabra a adivinar (letras/guiones) */
-#palabra-adivinar {
-    text-align: center; /* Centra las letras/guiones */
-    margin: 30px 0; /* Margen superior e inferior para separarlo */
-}
-
-/* Estilo para cada elemento que representa una letra oculta o adivinada */
-.letra-oculta {
-    font-size: 30px; /* Tamaño de fuente grande */
-    margin: 0 5px; /* Espacio horizontal entre letras */
-    border-bottom: 3px solid #333; /* Línea inferior que simula el espacio de la letra */
-    display: inline-block; /* Permite definir ancho y altura, pero mantiene el flujo en línea */
-    width: 30px; /* Ancho fijo para cada espacio de letra */
-    text-align: center; /* Centra la letra dentro de su espacio */
-}
-
-/* Contenedor para mensajes de estado o feedback al jugador */
-#mensajes {
-    text-align: center; /* Centra el texto */
-    margin: 20px 0;
-    font-size: 18px; /* Tamaño de fuente ligeramente mayor */
-    color: #666; /* Color de texto gris */
-}
-
-/* Contenedor para el campo de entrada de letras y el botón */
-#entrada-letras {
     text-align: center;
     margin: 20px 0;
 }
 
-/* Etiqueta del campo de entrada */
-#entrada-letras label {
-    display: block; /* Ocupa todo el ancho disponible */
-    margin-bottom: 10px;
-    font-size: 16px;
+#img img {
+    height: 180px;
 }
 
-/* Campo de entrada de la letra */
-#input-letra {
-    width: 50px; /* Ancho del campo */
-    height: 50px; /* Alto del campo (lo hace cuadrado) */
-    font-size: 24px;
-    text-align: center; /* Centra la letra que el usuario escribe */
-    border: 2px solid #333;
+/* Contenedor de la palabra a adivinar */
+#palabra-adivinar {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Estilo para cada letra oculta o adivinada */
+.letra-oculta {
+    font-size: 30px;
+    margin: 0 5px;
+    border-bottom: 3px solid #333;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    min-height: 35px;
+}
+
+/* Contenedor de mensajes */
+#mensajes {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Contenedor del abecedario */
+#abecedario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+/* Estilo de cada letra del abecedario */
+.letra-abecedario {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border: 2px solid #999;
     border-radius: 4px;
-    text-transform: uppercase; /* Convierte automáticamente la entrada a mayúsculas para la visualización */
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-/* Estilos base para todos los botones */
+.letra-abecedario:hover:not(.usada) {
+    background-color: #d0d0d0;
+    transform: scale(1.1);
+}
+
+.letra-abecedario.correcta {
+    background-color: #4CAF50;
+    color: white;
+    cursor: not-allowed;
+}
+
+.letra-abecedario.incorrecta {
+    background-color: #f44336;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Contenedor de cronómetro y cuenta atrás */
+#timers {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+#timers div {
+    text-align: center;
+}
+
+#cuenta-atras {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f44336;
+}
+
+/* Botones */
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
-    cursor: pointer; /* Indica que es un elemento interactivo al pasar el mouse */
+    cursor: pointer;
     margin: 5px;
+    transition: all 0.3s;
 }
 
-/* Estilo específico para el botón de adivinar */
-#boton-adivinar {
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: white; /* Color de texto blanco */
-}
-
-/* Contenedor de letras ya usadas */
-#letras-usadas {
-    text-align: center;
-    margin: 20px 0;
-}
-
-/* Texto que muestra las letras ya usadas */
-#letras-mostradas {
-    font-weight: bold; /* Hace el texto en negrita */
-}
-
-/* Estilo para el botón de reiniciar */
 #reiniciar {
-    display: block; /* Hace que el botón ocupe su propia línea */
-    margin: 20px auto; /* Centra el botón en su línea */
-    background-color: #f44336; /* Color de fondo rojo */
+    display: block;
+    margin: 20px auto;
+    background-color: #f44336;
     color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Sección de estadísticas */
+#estadisticas {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#estadisticas h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#lista-estadisticas {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.stat-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: white;
+    border-radius: 4px;
+    border-left: 4px solid #4CAF50;
+}
+
+.stat-item strong {
+    color: #4CAF50;
 }

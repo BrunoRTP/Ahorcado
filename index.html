@@ -4,34 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego del Ahorcado</title>
-    <link rel="stylesheet" href="styles.css"> </head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <!-- Div que contiene todo el juego -->
-    <div id="juego-ahorcado"> 
+    <div id="juego-ahorcado">
         <h1>El Ahorcado</h1>
+        
+        <!-- Selector de tema -->
+        <div id="selector-tema">
+            <label for="tema-select">Selecciona un tema:</label>
+            <select id="tema-select">
+                <option value="">Cargando temas...</option>
+            </select>
+        </div>
+
+        <!-- Información del juego -->
+        <div id="info-juego">
+            <div>
+                <p>Intentos restantes:</p>
+                <span id="intentos-restantes">6</span>
+            </div>
+            <div>
+                <p>Errores cometidos:</p>
+                <span id="errores-cometidos">0</span>
+            </div>
+        </div>
+
+        <!-- Imagen del ahorcado -->
         <div id="img">
-            <img src="img/ahorcado_6.png">
+            <img src="img/ahorcado_6.png" alt="Ahorcado">
         </div>
-        <!-- Zona donde se pondra la palabra escondida -->
-        <div id="palabra-adivinar">
-        </div>
+
+        <!-- Palabra a adivinar -->
+        <div id="palabra-adivinar"></div>
 
         <div id="mensajes">
             <p>¡Adivina la palabra!</p>
         </div>
-        <!-- Zona de input para las letras -->
-        <div id="entrada-letras">
-            <label for="input-letra">Introduce una letra:</label>
-            <input type="text" id="input-letra" maxlength="1">
-            <button id="boton-adivinar" onclick="comprobarLetra()">Adivinar</button>
+
+        <!-- Cronómetro y cuenta atrás -->
+        <div id="timers">
+            <div>
+                <p>Cronómetro:</p>
+                <span id="cronometro">00:00</span>
+            </div>
+            <div>
+                <p>Tiempo restante:</p>
+                <span id="cuenta-atras">10</span>
+            </div>
         </div>
-        <!-- Zona donde se muestran las letras ya puestas -->
-        <div id="letras-usadas">
-            <p>Letras usadas: <span id="letras-mostradas"></span></p>
-        </div>
-        
+
+        <!-- Abecedario interactivo -->
+        <div id="abecedario"></div>
+
         <button id="reiniciar">Reiniciar Juego</button>
+
+        <!-- Sección de estadísticas -->
+        <div id="estadisticas">
+            <h2>Estadísticas de Partidas Ganadas</h2>
+            <div id="lista-estadisticas"></div>
+        </div>
     </div>
+
     <script src="script.js"></script>
-    </body>
+</body>
 </html>
