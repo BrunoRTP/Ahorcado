@@ -12,9 +12,6 @@ let palabrasActuales = [];
 // Palabra secreta que el jugador debe adivinar
 let palabraSecreta = "";
 
-// Nombre del usuario
-let userName = "";
-
 // Contador de intentos fallidos
 let intentosFallidos = 0;
 
@@ -44,6 +41,27 @@ const botonReiniciar = document.getElementById("reiniciar");
 const listaEstadisticas = document.getElementById("lista-estadisticas");
 const selectorTema = document.getElementById("tema-select");
 
+// Referencias a elementos del popup
+const popupOverlay = document.getElementById("popup-overlay");
+const popupTitulo = document.getElementById("popup-titulo");
+const popupMensaje = document.getElementById("popup-mensaje");
+const popupBtnCerrar = document.getElementById("popup-btn-cerrar");
+
+
+// FUNCIONES DEL POPUP
+
+// Muestra el popup personalizado
+function mostrarPopup(titulo, mensaje) {
+    popupTitulo.textContent = titulo;
+    popupMensaje.innerHTML = mensaje;
+    popupOverlay.style.display = "flex";
+}
+
+// Cierra el popup personalizado
+function cerrarPopup() {
+    popupOverlay.style.display = "none";
+}
+
 
 // FUNCIONES DE CARGA DE DATOS
 
@@ -70,7 +88,7 @@ async function cargarTemasDesdeJSON() {
         console.log('Temas cargados correctamente:', temasDisponibles);
     } catch (error) {
         console.error('Error al cargar los temas:', error);
-        alert('No se pudieron cargar los temas. Verifica que el archivo palabras.json existe.');
+        mostrarPopup('Error', 'No se pudieron cargar los temas. Verifica que el archivo palabras.json existe.');
     }
 }
 
@@ -113,16 +131,6 @@ function cambiarTema() {
 
 
 // FUNCIONES DE INICIALIZACIÓN DEL JUEGO
-
-// Solicita el nombre del usuario al inicio del juego
-function pedirNombre() {
-    let nameInput = prompt("¡Bienvenido al Ahorcado! Por favor, dime tu nombre de usuario:");
-    if (nameInput && nameInput.trim() !== '') {
-        userName = nameInput.trim();
-    } else {
-        userName = 'Jugador';
-    }
-}
 
 // Selecciona una palabra aleatoria del array de palabras del tema actual
 function seleccionarPalabraAleatoria() {
@@ -246,7 +254,7 @@ function actualizarImagen() {
         clearInterval(intervaloContador);
         deshabilitarAbecedario();
         setTimeout(() => {
-            alert("¡Perdiste! La palabra era: " + palabraSecreta);
+            mostrarPopup("¡Perdiste!", `La palabra era: <strong>${palabraSecreta}</strong>`);
         }, 100);
     }
 }
@@ -320,7 +328,12 @@ function verificarVictoria() {
         guardarEstadistica();
         
         setTimeout(() => {
-            alert(`¡Felicidades ${userName}! ¡Has adivinado la palabra: ${palabraSecreta}!\n\nTiempo: ${spanCronometro.textContent}\nErrores: ${intentosFallidos}`);
+            mostrarPopup(
+                "¡Felicidades!", 
+                `¡Has adivinado la palabra: <strong>${palabraSecreta}</strong>!<br><br>
+                Tiempo: <strong>${spanCronometro.textContent}</strong><br>
+                Errores: <strong>${intentosFallidos}</strong>`
+            );
         }, 100);
     }
 }
@@ -443,14 +456,21 @@ botonReiniciar.addEventListener("click", reiniciarJuego);
 // Selector de tema
 selectorTema.addEventListener("change", cambiarTema);
 
+// Botón de cerrar popup
+popupBtnCerrar.addEventListener("click", cerrarPopup);
+
+// Cerrar popup al hacer clic en el overlay
+popupOverlay.addEventListener("click", (e) => {
+    if (e.target === popupOverlay) {
+        cerrarPopup();
+    }
+});
+
 
 // INICIALIZACIÓN DEL JUEGO
 
 // Cuando la página carga, ejecutamos estas funciones
 async function inicializarAplicacion() {
-    // Primero pedimos el nombre del usuario
-    pedirNombre();
-    
     // Cargamos los temas desde el JSON
     await cargarTemasDesdeJSON();
     
