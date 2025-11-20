@@ -69,7 +69,7 @@ function cerrarPopup() {
 async function cargarTemasDesdeJSON() {
     try {
         // Realizamos la petición al archivo JSON
-        const response = await fetch('palabras.json');
+        const response = await fetch('http://localhost:3000/temas');
         
         // Verificamos que la petición fue exitosa
         if (!response.ok) {
@@ -79,8 +79,8 @@ async function cargarTemasDesdeJSON() {
         // Convertimos la respuesta a objeto JavaScript
         const datos = await response.json();
         
-        // Guardamos los temas en la variable global
-        temasDisponibles = datos.temas;
+        // Guardamos los temas en la variable global. 
+        temasDisponibles = datos;
         
         // Poblamos el selector con los temas disponibles
         poblarSelectorTemas();
@@ -88,7 +88,7 @@ async function cargarTemasDesdeJSON() {
         console.log('Temas cargados correctamente:', temasDisponibles);
     } catch (error) {
         console.error('Error al cargar los temas:', error);
-        mostrarPopup('Error', 'No se pudieron cargar los temas. Verifica que el archivo palabras.json existe.');
+        mostrarPopup('Error', 'No se pudieron cargar los temas. Verifica que el servidor JSON (json-server) está corriendo en el puerto 3000.');
     }
 }
 
