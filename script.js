@@ -69,7 +69,7 @@ function cerrarPopup() {
 async function cargarTemasDesdeJSON() {
     try {
         // Realizamos la petición al archivo JSON
-        const response = await fetch('http://localhost:3000/temas');
+        const response = await fetch('palabras.json'); // Para utilizar json-server, cambiar a 'http://localhost:3000/temas'
         
         // Verificamos que la petición fue exitosa
         if (!response.ok) {
@@ -80,7 +80,7 @@ async function cargarTemasDesdeJSON() {
         const datos = await response.json();
         
         // Guardamos los temas en la variable global. 
-        temasDisponibles = datos;
+        temasDisponibles = datos.temas;
         
         // Poblamos el selector con los temas disponibles
         poblarSelectorTemas();
